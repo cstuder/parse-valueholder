@@ -12,8 +12,10 @@ Once PHP 8.1 is released, the fields will be turned `readonly`.
 
 ## Example
 
+Installation: `composer require cstuder/parse-valueholder`
+
 ```php
-$data = new \cstuder\ParseValueHolder\Value(
+$data = new \cstuder\ParseValueholder\Value(
   $timestamp,
   $locationString,
   $parameterString,
@@ -56,7 +58,3 @@ MIT.
 ## Author
 
 Christian Studer <cstuder@existenz.ch>, Bureau für digitale Existenz.
-
-```
-
-```
