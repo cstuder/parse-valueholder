@@ -1,0 +1,29 @@
+{
+  "name": "cstuder/parse-valueholder",
+  "description": "PHP value holder objects for `parse-hydrodaten` and `parse-swissmetnet`",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Studer",
+      "email": "cstuder@existenz.ch"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "cstuder\\ParseValueholder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "cstuder\\ParseValueholder\\": "tests/"
+    }
+  },
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
