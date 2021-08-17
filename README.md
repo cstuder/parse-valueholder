@@ -1,8 +1,10 @@
 # parse-valueholder
 
+[![PHPUnit tests](https://github.com/cstuder/parse-valueholder/actions/workflows/phpunit.yml/badge.svg)](https://github.com/cstuder/parse-valueholder/actions/workflows/phpunit.yml)
+
 PHP value holder objects for [parse-hydrodaten](https://github.com/cstuder/parse-hydrodaten) and [parse-swissmetnet](https://github.com/cstuder/parse-swissmetnet)
 
-This simple library provides immutable typed value holder objects(DTO) with the fields timestamp, location, parameter and value.
+This simple library provides immutable typed value holder objects (DTO) with the fields timestamp, location, parameter and value.
 
 Once PHP 8.1 is released, the fields will be turned `readonly`.
 
