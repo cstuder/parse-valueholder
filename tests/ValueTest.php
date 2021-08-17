@@ -1,13 +1,13 @@
 <?php
 
-
+use cstuder\ParseValueholder\Value;
 use PHPUnit\Framework\TestCase;
 
 class ValueTest extends TestCase
 {
-    public function testConstructor()
+    public function testConstructor(): void
     {
-        $data = new \cstuder\ParseValueholder\Value(15, 'here', 'something', 42);
+        $data = new Value(15, 'here', 'something', 42);
 
         $this->assertEquals(15, $data->timestamp);
         $this->assertEquals('here', $data->location);
@@ -15,9 +15,9 @@ class ValueTest extends TestCase
         $this->assertEquals(42, $data->value);
     }
 
-    public function testNullValue()
+    public function testNullValue(): void
     {
-        $data = new \cstuder\ParseValueholder\Value(15, 'here', 'something', null);
+        $data = new Value(15, 'here', 'something', null);
 
         $this->assertEquals(15, $data->timestamp);
         $this->assertEquals('here', $data->location);
@@ -25,10 +25,10 @@ class ValueTest extends TestCase
         $this->assertNull($data->value);
     }
 
-    public function testWrongTimestampType()
+    public function testWrongTimestampType(): void
     {
         $this->expectException(TypeError::class);
 
-        $data = new \cstuder\ParseValueholder\Value('now', 'here', 'something', null);
+        new Value('now', 'here', 'something', null);
     }
 }
