@@ -9,8 +9,18 @@ namespace cstuder\ParseValueholder;
  */
 class Row
 {
+    /**
+     * Row values
+     * 
+     * @var Value[] $values
+     */
     public array $values = [];
 
+    /**
+     * Construct a new row with optional initial values
+     * 
+     * @param Value[] $values
+     */
     public function __construct(?array $values = null)
     {
         if (is_null($values)) {
@@ -29,6 +39,11 @@ class Row
         $this->values = $values;
     }
 
+    /**
+     * Append a value to the row
+     * 
+     * @param Value $value
+     */
     public function append(Value $value)
     {
         $this->values[] = $value;
