@@ -4,11 +4,9 @@
 
 PHP value holder objects for [parse-hydrodaten](https://github.com/cstuder/parse-hydrodaten) and [parse-swissmetnet](https://github.com/cstuder/parse-swissmetnet)
 
-This simple library provides immutable typed value holder objects (DTO) with the fields timestamp, location, parameter and value.
+This simple library provides immutable typed value holder objects (DTO) with the readonly fields timestamp, location, parameter and value.
 
 Also provides a row object containing an array of values.
-
-Once PHP 8.1 is released, the fields will be turned `readonly`.
 
 ## Example
 
