@@ -6,7 +6,7 @@ PHP value holder objects for [parse-hydrodaten](https://github.com/cstuder/parse
 
 This simple library provides immutable typed value holder objects (DTO) with the readonly fields timestamp, location, parameter and value.
 
-Also provides a iterable row object containing an array of values and some simple statistic methods.
+Also provides a iterable row object containing an array of values and some simple statistic methods, along with a CSV parser.
 
 ## Example
 
@@ -39,6 +39,24 @@ $row->append($value3);
 foreach($row as $value) {
   var_dump($value);
 }
+```
+
+### CSV Parser
+
+A simple CSV parser to parse CSV files without header, in the format `timestamp, location, parameter, value`, i.e.:
+
+```csv
+1675281000,BER,tt,5.7
+```
+
+Delimiters, enclosure and escape characters are configurable.
+
+Parse either from a file or from a string:
+
+```php
+$row = \cstuder\ParseValueholder\Utils\CsvParser::parseFile($filename);
+
+$row2 = \cstuder\ParseValueholder\Utils\CsvParser::parseString("1675281000,BER,tt,5.7\n1675281600,BER,tt,5.8");
 ```
 
 ## Testing
