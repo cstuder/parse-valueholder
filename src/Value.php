@@ -7,7 +7,7 @@ namespace cstuder\ParseValueholder;
 class Value
 {
     /**
-     * Construct a new Value object with content
+     * Construct a new immutable Value object with content
      * 
      * @param int $timestamp Timestamp
      * @param string $location Location name

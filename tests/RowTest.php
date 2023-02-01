@@ -13,7 +13,7 @@ class RowTest extends TestCase
         $this->array = [
             new Value(1, 'here', 'something', 42),
             new Value(3, 'there', 'somewhat', 11),
-            new Value(2, 'where', 'someone', 'asdf'),
+            new Value(2, 'where', 'something', 'asdf'),
         ];
     }
 
@@ -21,14 +21,16 @@ class RowTest extends TestCase
     {
         $empty = new Row();
 
-        $this->assertEmpty($empty->values);
+        $this->assertEquals(0, $empty->count());
+        $this->assertEmpty($empty->getValues());
     }
 
     public function testConstructor(): void
     {
         $row = new Row($this->array);
 
-        $this->assertCount(3, $row->values);
+        $this->assertEquals(3, $row->count());
+        $this->assertCount(3, $row->getValues());
     }
 
     public function testAppend(): void
@@ -38,8 +40,8 @@ class RowTest extends TestCase
 
         $row->append($value);
 
-        $this->assertCount(4, $row->values);
-        $this->assertEquals($value, $row->values[3]);
+        $this->assertEquals(4, $row->count());
+        $this->assertEquals($value, $row->getValues()[3]);
     }
 
     public function testInvalidObjectInConstructor(): void
@@ -59,5 +61,35 @@ class RowTest extends TestCase
         $row = new Row($this->array);
 
         $row->append($value);
+    }
+
+    public function testIterator(): void
+    {
+        $row = new Row($this->array);
+
+        foreach ($row as $value) {
+            $this->assertInstanceOf('cstuder\ParseValueholder\Value', $value);
+        }
+    }
+
+    public function testLocations(): void
+    {
+        $row = new Row($this->array);
+
+        $this->assertCount(3, $row->getLocations());
+    }
+
+    public function testParameters(): void
+    {
+        $row = new Row($this->array);
+
+        $this->assertCount(2, $row->getParameters());
+    }
+
+    public function testTimestamps(): void
+    {
+        $row = new Row($this->array);
+
+        $this->assertCount(3, $row->getTimestamps());
     }
 }

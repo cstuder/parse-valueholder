@@ -6,7 +6,7 @@ PHP value holder objects for [parse-hydrodaten](https://github.com/cstuder/parse
 
 This simple library provides immutable typed value holder objects (DTO) with the readonly fields timestamp, location, parameter and value.
 
-Also provides a row object containing an array of values.
+Also provides a iterable row object containing an array of values and some simple statistic methods.
 
 ## Example
 
@@ -36,7 +36,9 @@ $row = new \cstuder\ParseValueholder\Row([
 
 $row->append($value3);
 
-var_dump($row->values);
+foreach($row as $value) {
+  var_dump($value);
+}
 ```
 
 ## Testing
