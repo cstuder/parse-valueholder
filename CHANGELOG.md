@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Makes the `values` field protected, use `getValues()` instead.
 - Makes the `Row` class iterable.
 - Adds `Row` metadata functions.
+- Adds utility `CsvParser`.
 
 ## [0.1.1] - 2023-01-30
 
