@@ -21,7 +21,7 @@ class RowTest extends TestCase
     {
         $empty = new Row();
 
-        $this->assertEquals(0, $empty->count());
+        $this->assertEquals(0, $empty->getCount());
         $this->assertEmpty($empty->getValues());
     }
 
@@ -29,7 +29,7 @@ class RowTest extends TestCase
     {
         $row = new Row($this->array);
 
-        $this->assertEquals(3, $row->count());
+        $this->assertEquals(3, $row->getCount());
         $this->assertCount(3, $row->getValues());
     }
 
@@ -40,7 +40,7 @@ class RowTest extends TestCase
 
         $row->append($value);
 
-        $this->assertEquals(4, $row->count());
+        $this->assertEquals(4, $row->getCount());
         $this->assertEquals($value, $row->getValues()[3]);
     }
 

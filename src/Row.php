@@ -73,7 +73,7 @@ class Row implements Iterator
      * 
      * @return int Count
      */
-    public function count(): int
+    public function getCount(): int
     {
         return count($this->values);
     }
