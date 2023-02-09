@@ -59,6 +59,6 @@ class CsvParser
             throw new \InvalidArgumentException('Invalid parsed data line: ' . print_r($data, true));
         }
 
-        return new Value((int) $data[0], (string) $data[1], (string) $data[2], $data[3]);
+        return new Value((int) $data[0], (string) $data[1], (string) $data[2], (float) $data[3]);
     }
 }

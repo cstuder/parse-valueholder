@@ -16,12 +16,13 @@ class CsvParserTest extends TestCase
 
     public function testParseSimpleString()
     {
-        $string = "123;a;b;c\n124;a;b;5\n\n";
+        $string = "123;a;b;c\n124;a;b;5.3\n\n";
 
         $data = CsvParser::parseString($string, ';');
 
         $this->assertEquals(2, $data->getCount());
-        $this->assertEquals(124, $data->getValues()[1]->timestamp);
+        $this->assertEquals(123, $data->getValues()[0]->timestamp);
+        $this->assertEquals(5.3, $data->getValues()[1]->value);
     }
 
     public function testParseFileEmpty()

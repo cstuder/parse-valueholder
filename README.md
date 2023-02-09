@@ -51,7 +51,9 @@ A simple CSV parser to parse CSV files without header, in the format `timestamp,
 
 Delimiters, enclosure and escape characters are configurable.
 
-Parse either from a file or from a string:
+All values are cast to float.
+
+Parses either from a file or from a string:
 
 ```php
 $row = \cstuder\ParseValueholder\Utils\CsvParser::parseFile($filename);
