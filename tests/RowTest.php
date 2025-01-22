@@ -92,4 +92,31 @@ class RowTest extends TestCase
 
         $this->assertCount(3, $row->getTimestamps());
     }
+
+    public function testJsonSerialize(): void
+    {
+        $row = new Row($this->array);
+        $json = json_encode($row);
+
+        $this->assertEquals([
+            [
+                'timestamp' => 1,
+                'location' => 'here',
+                'parameter' => 'something',
+                'value' => 42,
+            ],
+            [
+                'timestamp' => 3,
+                'location' => 'there',
+                'parameter' => 'somewhat',
+                'value' => 11,
+            ],
+            [
+                'timestamp' => 2,
+                'location' => 'where',
+                'parameter' => 'something',
+                'value' => 'asdf',
+            ],
+        ], json_decode($json, true));
+    }
 }

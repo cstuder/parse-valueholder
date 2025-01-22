@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace cstuder\ParseValueholder;
 
-class Value
+use JsonSerializable;
+
+class Value implements JsonSerializable
 {
     /**
      * Construct a new immutable Value object with content
@@ -20,5 +22,14 @@ class Value
         public readonly string $parameter,
         public readonly mixed $value
     ) {
+    }
+
+    public function jsonSerialize(): array { 
+        return [
+            'timestamp' => $this->timestamp,
+            'location' => $this->location,
+            'parameter' => $this->parameter,
+            'value' => $this->value,
+        ];
     }
 }

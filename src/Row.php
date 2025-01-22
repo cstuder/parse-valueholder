@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace cstuder\ParseValueholder;
 
 use Iterator;
+use JsonSerializable;
 
 /**
  * An array of Values
  */
-class Row implements Iterator
+class Row implements Iterator, JsonSerializable
 {
     /**
      * Row values
@@ -47,6 +48,10 @@ class Row implements Iterator
 
         $this->values = $values;
     }
+
+    public function jsonSerialize(): array {
+        return $this->values;
+     }
 
     /**
      * Append a value to the row

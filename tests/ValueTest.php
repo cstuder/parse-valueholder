@@ -31,4 +31,17 @@ class ValueTest extends TestCase
 
         new Value('now', 'here', 'something', null);
     }
+
+    public function testJsonSerialize(): void
+    {
+        $data = new Value(15, 'here', 'something', 42);
+        $json = json_encode($data);
+
+        $this->assertEquals([
+            'timestamp' => 15,
+            'location' => 'here',
+            'parameter' => 'something',
+            'value' => 42,
+        ], json_decode($json, true));
+    }
 }
